@@ -1,0 +1,13 @@
+FROM python:2.7-alpine
+
+run pip install web.py
+
+run pip install redis
+
+# Add shell script
+COPY addition.py /
+RUN chmod 777 addition.py
+
+EXPOSE 8080
+
+CMD ["python", "/addition.py"]
